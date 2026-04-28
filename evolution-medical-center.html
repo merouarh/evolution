@@ -1,0 +1,2969 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Evolution Medical Center – Clinique médicale et esthétique premium à Hydra, Alger. Épilation laser, chirurgie esthétique, dentaire, gynécologie et plus.">
+<meta name="keywords" content="clinique esthétique Alger, épilation laser Hydra, Botox Alger, chirurgie esthétique Algérie, Evolution Medical Center">
+<title>Evolution Medical Center | Clinique Premium – Hydra, Alger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN TOKENS & RESET
+   ============================================================ */
+:root {
+  --beige: #f0e9df;
+  --beige-dark: #e8ddd0;
+  --white: #ffffff;
+  --gold: #d4c2a5;
+  --gold-dark: #b8a68a;
+  --gold-light: #ede5d8;
+  --text-dark: #1a1a1a;
+  --text-mid: #444;
+  --text-soft: #777;
+  --glass: rgba(255,255,255,0.6);
+  --glass-border: rgba(212,194,165,0.35);
+  --shadow-soft: 0 8px 40px rgba(26,26,26,0.08);
+  --shadow-card: 0 20px 60px rgba(26,26,26,0.12);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --nav-h: 80px;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Poppins', sans-serif;
+  --transition: 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  --green: #25D366;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--beige);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.serif { font-family: var(--font-serif); }
+
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; }
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: var(--text-soft);
+  max-width: 560px;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+.btn:hover::after { opacity: 1; }
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: linear-gradient(135deg, #25D366 0%, #1da855 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+}
+.btn-primary:hover { box-shadow: 0 8px 32px rgba(37,211,102,0.5); transform: translateY(-2px); }
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: var(--text-dark);
+  box-shadow: 0 4px 20px rgba(212,194,165,0.4);
+}
+.btn-gold:hover { box-shadow: 0 8px 32px rgba(212,194,165,0.6); transform: translateY(-2px); }
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  color: var(--text-dark);
+}
+.btn-outline:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+.btn-dark {
+  background: var(--text-dark);
+  color: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+.btn-dark:hover { background: #333; transform: translateY(-2px); }
+
+.btn-white {
+  background: var(--white);
+  color: var(--text-dark);
+  box-shadow: var(--shadow-soft);
+}
+.btn-white:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+.btn-sm { padding: 0.6rem 1.3rem; font-size: 0.82rem; }
+
+/* ============================================================
+   FLOATING WHATSAPP
+   ============================================================ */
+.floating-wa {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366, #1da855);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+  transition: all 0.3s;
+  animation: pulse-wa 3s infinite;
+}
+.floating-wa:hover { transform: scale(1.12); box-shadow: 0 10px 40px rgba(37,211,102,0.7); }
+.floating-wa svg { width: 28px; height: 28px; fill: white; }
+
+@keyframes pulse-wa {
+  0%,100% { box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
+  50% { box-shadow: 0 6px 50px rgba(37,211,102,0.8), 0 0 0 12px rgba(37,211,102,0.08); }
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+#navbar.scrolled {
+  background: rgba(240,233,223,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 30px rgba(26,26,26,0.08);
+}
+
+.nav-inner {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.nav-logo-main {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.nav-logo-sub {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 500;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--gold-dark);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--text-dark); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-dark);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  background: rgba(240,233,223,0.97);
+  backdrop-filter: blur(20px);
+  padding: 2rem;
+  z-index: 999;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 20px 40px rgba(26,26,26,0.12);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gold-light);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(26,26,26,0.72) 0%, rgba(26,26,26,0.35) 50%, rgba(212,194,165,0.2) 100%),
+    url('https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1920&q=80&auto=format&fit=crop') center/cover no-repeat;
+  z-index: 0;
+}
+
+.hero-overlay-pattern {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(212,194,165,0.12) 0%, transparent 60%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: var(--nav-h);
+  width: 100%;
+}
+
+.hero-inner {
+  max-width: 680px;
+  padding: 4rem 0;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212,194,165,0.2);
+  border: 1px solid rgba(212,194,165,0.5);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.8rem;
+  animation: fadeInDown 0.8s ease 0.2s both;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: block;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+  animation: fadeInUp 0.9s ease 0.4s both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  animation: fadeInUp 0.9s ease 0.6s both;
+}
+
+.hero-tech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  padding: 0.55rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  color: white;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 0.9s ease 0.8s both;
+}
+.hero-tech-tag svg { width: 16px; height: 16px; fill: var(--gold); }
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  animation: fadeInUp 0.9s ease 1s both;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  animation: fadeInUp 0.9s ease 1.2s both;
+}
+
+.hero-stat-item {}
+.hero-stat-num {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.hero-scroll-indicator span {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.scroll-line {
+  width: 1.5px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  animation: scrollAnim 2s ease-in-out infinite;
+}
+@keyframes scrollAnim {
+  0%,100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   SECTION WRAPPER
+   ============================================================ */
+.section {
+  padding: 100px 0;
+}
+.section-alt { background: var(--white); }
+.section-dark { background: var(--text-dark); color: white; }
+.section-gold { background: linear-gradient(135deg, #ede5d8 0%, #f0e9df 100%); }
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header { margin-bottom: 4rem; }
+.section-header.center { text-align: center; }
+.section-header.center .section-sub { margin: 0 auto; }
+
+/* ============================================================
+   SERVICES OVERVIEW GRID
+   ============================================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2.2rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card);
+}
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.3rem;
+  font-size: 1.4rem;
+  transition: all 0.3s;
+}
+.service-card:hover .service-icon {
+  background: var(--gold);
+  transform: scale(1.1);
+}
+
+.service-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--text-dark);
+}
+.service-card p {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   SERVICE DETAIL SECTIONS
+   ============================================================ */
+.service-detail {
+  padding: 100px 0;
+}
+.service-detail:nth-child(even) { background: var(--white); }
+
+.service-detail-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.service-detail-inner.reversed { direction: rtl; }
+.service-detail-inner.reversed > * { direction: ltr; }
+
+.service-detail-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+}
+.service-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.service-detail-img:hover img { transform: scale(1.05); }
+
+.service-detail-img-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(240,233,223,0.92);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  border: 1px solid var(--glass-border);
+}
+
+.service-benefits {
+  list-style: none;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.service-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+.service-benefits li::before {
+  content: '✦';
+  color: var(--gold-dark);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}
+
+.service-result-box {
+  background: var(--beige);
+  border: 1px solid var(--gold-light);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+}
+.service-result-box strong { color: var(--text-dark); font-weight: 600; }
+
+.service-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* ============================================================
+   LASER PACKS
+   ============================================================ */
+#laser-packs { background: var(--text-dark); padding: 100px 0; }
+#laser-packs .section-title { color: white; }
+#laser-packs .section-label { color: var(--gold); }
+
+.packs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.pack-card {
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: all 0.4s ease;
+  cursor: default;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.pack-card.popular {
+  background: linear-gradient(135deg, var(--gold-light) 0%, #fff 100%);
+  border: 1.5px solid var(--gold);
+  transform: scale(1.05);
+}
+
+.pack-card:hover:not(.popular) {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(212,194,165,0.4);
+  transform: translateY(-8px);
+}
+.pack-card.popular:hover { transform: scale(1.08) translateY(-4px); }
+
+.pack-badge {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--text-dark);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 50px;
+}
+
+.pack-num {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+.pack-card.popular .pack-num { color: var(--text-soft); }
+.pack-card:not(.popular) .pack-num { color: rgba(255,255,255,0.5); }
+
+.pack-price {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.pack-card.popular .pack-price { color: var(--text-dark); }
+.pack-card:not(.popular) .pack-price { color: white; }
+
+.pack-currency {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 4px;
+  opacity: 0.7;
+}
+
+.pack-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 1.5rem 0;
+}
+.pack-card.popular .pack-divider { background: var(--gold-light); }
+
+.pack-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 2rem;
+}
+.pack-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+.pack-card.popular .pack-features li { color: var(--text-mid); }
+.pack-card:not(.popular) .pack-features li { color: rgba(255,255,255,0.7); }
+.pack-features li::before {
+  content: '✓';
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.pack-card.popular .pack-features li::before {
+  background: var(--gold-light);
+  color: var(--gold-dark);
+}
+.pack-card:not(.popular) .pack-features li::before {
+  background: rgba(212,194,165,0.15);
+  color: var(--gold);
+}
+
+/* ============================================================
+   INJECTIONS SECTION
+   ============================================================ */
+.injections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+
+.injection-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem 1.8rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s;
+  text-align: center;
+}
+.injection-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--gold);
+}
+.injection-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.injection-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.injection-card p { font-size: 0.83rem; color: var(--text-soft); line-height: 1.7; }
+
+.injection-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.injection-info-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2.2rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+}
+.injection-info-box h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+.injection-info-box p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.8; }
+
+/* ============================================================
+   AID PROMO
+   ============================================================ */
+#aid-promo {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2420 40%, #1a1a1a 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+#aid-promo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(212,194,165,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(212,194,165,0.08) 0%, transparent 50%);
+}
+
+.aid-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.aid-content .section-label { color: var(--gold); }
+.aid-content .section-title { color: white; }
+.aid-content .section-sub { color: rgba(255,255,255,0.7); }
+
+.aid-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.aid-service-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(212,194,165,0.2);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.3rem;
+  transition: all 0.3s;
+}
+.aid-service-item:hover {
+  background: rgba(212,194,165,0.1);
+  border-color: rgba(212,194,165,0.4);
+  transform: translateX(6px);
+}
+.aid-service-icon { font-size: 1.5rem; }
+.aid-service-info h4 {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: white;
+  margin-bottom: 0.2rem;
+}
+.aid-service-info p { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+
+.aid-visual {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  position: relative;
+}
+.aid-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.aid-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(212,194,165,0.15) 0%, transparent 60%);
+}
+
+/* ============================================================
+   GALLERY SLIDER
+   ============================================================ */
+#gallery { padding: 100px 0; background: var(--white); }
+
+.gallery-slider-wrap {
+  overflow: hidden;
+  border-radius: var(--radius);
+  position: relative;
+  margin-top: 3rem;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 1.2rem;
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.gallery-slide {
+  flex: 0 0 calc(33.33% - 0.8rem);
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+}
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-slide:hover img { transform: scale(1.08); }
+
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.gallery-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+.gallery-btn:hover { background: var(--gold); }
+
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.gallery-dot.active {
+  background: var(--gold-dark);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   BEFORE / AFTER
+   ============================================================ */
+#before-after { padding: 100px 0; }
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+.filter-tab {
+  padding: 0.55rem 1.4rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid var(--gold-light);
+  background: transparent;
+  color: var(--text-soft);
+  transition: all 0.3s;
+  font-family: var(--font-sans);
+}
+.filter-tab:hover, .filter-tab.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--text-dark);
+}
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.ba-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s;
+}
+.ba-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card); }
+
+.ba-comparison {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.ba-img-before, .ba-img-after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ba-img-after {
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.6s ease;
+}
+.ba-card.toggled .ba-img-after { clip-path: inset(0 0% 0 0); }
+.ba-card.toggled .ba-img-before { opacity: 0; }
+
+.ba-divider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: white;
+  transform: translateX(-50%);
+  transition: left 0.6s ease;
+  z-index: 2;
+}
+.ba-divider-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  z-index: 3;
+}
+
+.ba-label {
+  position: absolute;
+  top: 1rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 4;
+}
+.ba-label-before { left: 1rem; background: rgba(26,26,26,0.75); color: white; }
+.ba-label-after  { right: 1rem; background: var(--gold); color: var(--text-dark); }
+
+.ba-info {
+  background: white;
+  padding: 1rem 1.3rem;
+}
+.ba-info h4 { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; }
+.ba-info span { font-size: 0.75rem; color: var(--text-soft); }
+
+.ba-toggle-btn {
+  display: block;
+  margin: 2.5rem auto 0;
+}
+
+.hidden { display: none !important; }
+
+/* ============================================================
+   DOCTORS
+   ============================================================ */
+#doctors { padding: 100px 0; background: var(--white); }
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.doctor-card {
+  background: var(--beige);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s;
+}
+.doctor-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-card); }
+
+.doctor-photo {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.doctor-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: grayscale(20%);
+}
+.doctor-card:hover .doctor-photo img {
+  transform: scale(1.06);
+  filter: grayscale(0%);
+}
+
+.doctor-info {
+  padding: 1.3rem;
+}
+.doctor-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.doctor-specialty {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 0.7rem;
+}
+.doctor-bio { font-size: 0.8rem; color: var(--text-soft); line-height: 1.7; }
+
+/* ============================================================
+   APPOINTMENT FORM
+   ============================================================ */
+#appointment { padding: 100px 0; background: var(--text-dark); }
+#appointment .section-label { color: var(--gold); }
+#appointment .section-title { color: white; }
+
+.form-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,194,165,0.2);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius);
+  padding: 3rem;
+  max-width: 800px;
+  margin: 3rem auto 0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group.full { grid-column: 1 / -1; }
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(212,194,165,0.25);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: white;
+  transition: all 0.3s;
+  width: 100%;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-group select option {
+  background: #2d2420;
+  color: white;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  background: rgba(212,194,165,0.08);
+}
+
+.form-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.form-message {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  display: none;
+}
+.form-message.success {
+  background: rgba(37,211,102,0.15);
+  color: #5dba7b;
+  border: 1px solid rgba(37,211,102,0.3);
+  display: block;
+}
+.form-message.error {
+  background: rgba(220,80,80,0.15);
+  color: #e57373;
+  border: 1px solid rgba(220,80,80,0.3);
+  display: block;
+}
+.form-message.pending {
+  background: rgba(212,194,165,0.15);
+  color: var(--gold);
+  border: 1px solid rgba(212,194,165,0.3);
+  display: block;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact { padding: 100px 0; }
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--gold-light);
+}
+.contact-item:last-child { border-bottom: none; }
+.contact-item-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+.contact-item-info h4 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 0.3rem;
+}
+.contact-item-info p, .contact-item-info a {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  transition: color 0.3s;
+  display: block;
+  line-height: 1.6;
+}
+.contact-item-info a:hover { color: var(--text-dark); }
+
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 380px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--glass-border);
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+#faq { padding: 100px 0; background: var(--white); }
+
+.faq-list {
+  max-width: 780px;
+  margin: 3rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: var(--beige);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.faq-item.open { box-shadow: var(--shadow-soft); }
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  gap: 1rem;
+}
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  transition: transform 0.35s, background 0.3s;
+  color: var(--gold-dark);
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-answer-inner {
+  padding: 0 1.5rem 1.3rem;
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.9;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+#footer {
+  background: var(--text-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 60px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {}
+.footer-brand .nav-logo-main { color: white; font-size: 1.4rem; }
+.footer-brand .nav-logo-sub { color: var(--gold); }
+.footer-brand p {
+  font-size: 0.83rem;
+  margin-top: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-col h4 {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 1.2rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col ul li a {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s;
+}
+.footer-col ul li a:hover { color: var(--gold); }
+
+.footer-hours-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-hours-item .day { color: white; }
+
+.social-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.social-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--text-dark); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ============================================================
+   TRUST BAR
+   ============================================================ */
+.trust-bar {
+  background: var(--white);
+  border-top: 1px solid var(--gold-light);
+  border-bottom: 1px solid var(--gold-light);
+  padding: 1.5rem 0;
+}
+.trust-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  font-weight: 500;
+}
+.trust-item span { font-size: 1.1rem; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .packs-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .pack-card.popular { transform: scale(1); }
+  .service-detail-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .service-detail-inner.reversed { direction: ltr; }
+  .aid-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .aid-visual { aspect-ratio: 16/9; }
+  .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .injection-info-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-h: 68px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  .section { padding: 70px 0; }
+  .section-title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+
+  .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+  .hero-cta-group .btn { font-size: 0.82rem; padding: 0.75rem 1.4rem; }
+
+  .services-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .service-card { padding: 1.5rem; }
+
+  .ba-grid { grid-template-columns: 1fr 1fr; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .doctors-grid { grid-template-columns: 1fr 1fr; }
+
+  .gallery-slide { flex: 0 0 calc(50% - 0.6rem); }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { justify-content: center; text-align: center; }
+
+  .trust-inner { gap: 1.5rem; }
+
+  .filter-tabs { gap: 0.4rem; }
+  .filter-tab { padding: 0.45rem 1rem; font-size: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .ba-grid { grid-template-columns: 1fr; }
+  .doctors-grid { grid-template-columns: 1fr; }
+  .gallery-slide { flex: 0 0 85%; }
+  .hero-cta-group { flex-direction: column; }
+  .hero-cta-group .btn { width: 100%; justify-content: center; }
+  .form-card { padding: 1.5rem; }
+  .packs-grid { grid-template-columns: 1fr; }
+  .injection-info-grid { grid-template-columns: 1fr; }
+  .injections-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { display: none; }
+}
+
+/* ============================================================
+   MISC UTILITIES
+   ============================================================ */
+.divider-line {
+  height: 1px;
+  background: var(--gold-light);
+  margin: 0;
+}
+
+.gold-accent { color: var(--gold-dark); }
+
+.text-center { text-align: center; }
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+
+.lazy-img { background: var(--gold-light); min-height: 200px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--beige); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* Selection */
+::selection { background: rgba(212,194,165,0.4); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     FLOATING WHATSAPP
+     ============================================================ -->
+<a href="https://wa.me/213549751647" target="_blank" class="floating-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="nav-logo-main">Evolution Medical</span>
+      <span class="nav-logo-sub">Center – Hydra, Alger</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#laser-packs">Laser Packs</a></li>
+      <li><a href="#doctors">Médecins</a></li>
+      <li><a href="#before-after">Résultats</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:0549751647" class="btn btn-outline btn-sm">📞 Appeler</a>
+      <a href="#appointment" class="btn btn-gold btn-sm">Réserver</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#laser-packs" onclick="closeMobileMenu()">Laser Packs</a>
+  <a href="#injections" onclick="closeMobileMenu()">Injections</a>
+  <a href="#doctors" onclick="closeMobileMenu()">Médecins</a>
+  <a href="#before-after" onclick="closeMobileMenu()">Résultats</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <div style="display:flex;gap:.75rem;flex-wrap:wrap;padding-top:.5rem">
+    <a href="https://wa.me/213549751647" class="btn btn-primary btn-sm" target="_blank">💬 WhatsApp</a>
+    <a href="tel:0549751647" class="btn btn-outline btn-sm">📞 Appeler</a>
+    <a href="#appointment" onclick="closeMobileMenu()" class="btn btn-gold btn-sm">Réserver</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span>✦ Clinique Premium – Hydra, Alger</span>
+      </div>
+      <h1 class="hero-title">
+        Préparez votre peau<br>pour l'été<br><em>dès maintenant</em>
+      </h1>
+      <p class="hero-subtitle">
+        Dites adieu aux poils et bonjour à une peau douce, nette et sans contraintes. 
+        Une expérience esthétique d'exception vous attend.
+      </p>
+      <div class="hero-tech-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        Laser Clarity II – Technologie de pointe
+      </div>
+      <div class="hero-cta-group">
+        <a href="https://wa.me/213549751647?text=Bonjour, je souhaite prendre un rendez-vous à Evolution Medical Center" target="_blank" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="tel:0549751647" class="btn btn-white">📞 Appeler</a>
+        <a href="#appointment" class="btn btn-outline" style="border-color:rgba(212,194,165,0.6);color:white">📅 Réserver en ligne</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">5000+</div>
+          <div class="hero-stat-label">Patients satisfaits</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Spécialistes</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">15+</div>
+          <div class="hero-stat-label">Services médicaux</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="hero-stat-num">98%</div>
+          <div class="hero-stat-label">Taux de satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator" onclick="document.getElementById('trust').scrollIntoView({behavior:'smooth'})">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST BAR
+     ============================================================ -->
+<div class="trust-bar" id="trust">
+  <div class="trust-inner">
+    <div class="trust-item reveal"><span>🏆</span> Clinique certifiée</div>
+    <div class="trust-item reveal delay-1"><span>🔬</span> Technologie Clarity II</div>
+    <div class="trust-item reveal delay-2"><span>👩‍⚕️</span> Médecins spécialistes</div>
+    <div class="trust-item reveal delay-3"><span>✨</span> Résultats garantis</div>
+    <div class="trust-item reveal delay-4"><span>🕐</span> Ouvert 08h – 20h</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SERVICES OVERVIEW
+     ============================================================ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label reveal">Nos Spécialités</div>
+      <h2 class="section-title reveal delay-1">Une clinique,<br><em style="font-style:italic;color:var(--gold-dark)">toutes vos solutions</em></h2>
+      <p class="section-sub reveal delay-2">De l'esthétique à la médecine générale, nos experts prennent soin de vous dans un cadre luxueux et bienveillant.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" onclick="document.getElementById('service-laser').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">✨</div>
+        <h3>Épilation Laser</h3>
+        <p>Technologie Clarity II pour une épilation définitive, douce et efficace sur tous les types de peau.</p>
+      </div>
+      <div class="service-card reveal delay-1" onclick="document.getElementById('service-visage').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">💆‍♀️</div>
+        <h3>Soins Visage</h3>
+        <p>Hydratation profonde, peeling, rajeunissement et éclat pour une peau parfaite en toute saison.</p>
+      </div>
+      <div class="service-card reveal delay-2" onclick="document.getElementById('service-corps').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">🧴</div>
+        <h3>Soins Corps</h3>
+        <p>Raffermissement, lipolyse, traitement de la cellulite et modelage corporel haut de gamme.</p>
+      </div>
+      <div class="service-card reveal delay-3" onclick="document.getElementById('service-chir').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">🏥</div>
+        <h3>Chirurgie Esthétique</h3>
+        <p>Rhinoplastie, liposuccion, augmentation mammaire et toutes corrections esthétiques par nos chirurgiens.</p>
+      </div>
+      <div class="service-card reveal delay-1" onclick="document.getElementById('service-dental').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">🦷</div>
+        <h3>Médecine Dentaire</h3>
+        <p>Blanchiment, implants, facettes, orthodontie et sourire de rêve au sein de notre pôle dentaire.</p>
+      </div>
+      <div class="service-card reveal delay-2" onclick="document.getElementById('service-gyneco').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">🌸</div>
+        <h3>Gynécologie</h3>
+        <p>Consultations gynécologiques, échographies, suivi prénatal et gynécologie esthétique.</p>
+      </div>
+      <div class="service-card reveal delay-3" onclick="document.getElementById('service-internal').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">❤️</div>
+        <h3>Médecine Interne</h3>
+        <p>Bilan de santé complet, suivi des maladies chroniques, cardiologie et endocrinologie.</p>
+      </div>
+      <div class="service-card reveal delay-1" onclick="document.getElementById('service-nutrition').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">🥗</div>
+        <h3>Nutrition & Obésité</h3>
+        <p>Programmes personnalisés, rééquilibrage alimentaire et accompagnement durable pour votre poids idéal.</p>
+      </div>
+      <div class="service-card reveal delay-2" onclick="document.getElementById('service-douleur').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">💊</div>
+        <h3>Gestion de la Douleur</h3>
+        <p>Prise en charge des douleurs chroniques, infiltrations et thérapies innovantes antidouleur.</p>
+      </div>
+      <div class="service-card reveal delay-3" onclick="document.getElementById('service-labo').scrollIntoView({behavior:'smooth'})">
+        <div class="service-icon">🔬</div>
+        <h3>Laboratoire d'Analyses</h3>
+        <p>Analyses biologiques complètes, résultats rapides et fiables réalisées par nos biologistes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICE DETAIL 1 – LASER
+     ============================================================ -->
+<section class="service-detail section-alt" id="service-laser">
+  <div class="container">
+    <div class="service-detail-inner">
+      <div class="service-detail-img reveal-left">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=80&auto=format&fit=crop" alt="Épilation Laser" loading="lazy" class="lazy-img">
+        <div class="service-detail-img-badge">✨ Technologie Clarity II</div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Service Premium</div>
+        <h2 class="section-title">Épilation Laser<br><em style="font-style:italic">Définitive & Indolore</em></h2>
+        <p class="section-sub">Grâce au laser Clarity II, nous offrons une épilation définitive adaptée à tous les phototypes de peau, même les plus sensibles. Une technologie de pointe pour des résultats visibles dès la première séance.</p>
+        <ul class="service-benefits">
+          <li>Traitement de toutes les zones corporelles et faciales</li>
+          <li>Compatible peaux mates, foncées et sensibles</li>
+          <li>Réduction permanente de 80 à 95% des poils</li>
+          <li>Séance rapide et pratiquement indolore</li>
+          <li>Aucun temps de récupération requis</li>
+          <li>Résultats visibles dès la 2ème ou 3ème séance</li>
+        </ul>
+        <div class="service-result-box">
+          <strong>Résultats attendus :</strong> Une réduction visible dès les premières séances, avec des résultats permanents après un programme complet de 6 à 8 séances.
+        </div>
+        <div class="service-cta-row">
+          <a href="https://wa.me/213549751647?text=Je souhaite un devis épilation laser" target="_blank" class="btn btn-primary btn-sm">💬 Devis WhatsApp</a>
+          <a href="#laser-packs" class="btn btn-gold btn-sm">Voir les packs</a>
+          <a href="#appointment" class="btn btn-outline btn-sm">Prendre RDV</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICE DETAIL 2 – VISAGE
+     ============================================================ -->
+<section class="service-detail" id="service-visage">
+  <div class="container">
+    <div class="service-detail-inner reversed">
+      <div class="service-detail-img reveal-right">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=900&q=80&auto=format&fit=crop" alt="Soins Visage" loading="lazy" class="lazy-img">
+        <div class="service-detail-img-badge">💆‍♀️ Soins de luxe</div>
+      </div>
+      <div class="reveal-left">
+        <div class="section-label">Esthétique Visage</div>
+        <h2 class="section-title">Soins Esthétiques<br><em style="font-style:italic">du Visage</em></h2>
+        <p class="section-sub">Une gamme complète de soins visage haut de gamme pour révéler votre éclat naturel, effacer les marques du temps et illuminer votre teint.</p>
+        <ul class="service-benefits">
+          <li>Peeling chimique et microdermabrasion</li>
+          <li>Traitement des taches et hyperpigmentation</li>
+          <li>Hydratation profonde et soin anti-âge</li>
+          <li>Soin acné et cicatrices</li>
+          <li>Rajeunissement par radiofréquence</li>
+          <li>Mésothérapie visage revitalisante</li>
+        </ul>
+        <div class="service-result-box">
+          <strong>Résultats attendus :</strong> Teint lumineux, peau lissée et hydratée dès le premier soin. Programme de 4 à 6 séances pour une transformation durable.
+        </div>
+        <div class="service-cta-row">
+          <a href="https://wa.me/213549751647" target="_blank" class="btn btn-primary btn-sm">💬 WhatsApp</a>
+          <a href="#appointment" class="btn btn-gold btn-sm">Réserver</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICE DETAIL 3 – CORPS
+     ============================================================ -->
+<section class="service-detail section-alt" id="service-corps">
+  <div class="container">
+    <div class="service-detail-inner">
+      <div class="service-detail-img reveal-left">
+        <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=900&q=80&auto=format&fit=crop" alt="Soins Corps" loading="lazy" class="lazy-img">
+        <div class="service-detail-img-badge">🧴 Modelage & Raffermissement</div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Esthétique Corps</div>
+        <h2 class="section-title">Soins Esthétiques<br><em style="font-style:italic">du Corps</em></h2>
+        <p class="section-sub">Retrouvez le corps dont vous rêvez grâce à nos traitements corporels de pointe : lipolyse, raffermissement, soin anti-cellulite et modelage sculptant.</p>
+        <ul class="service-benefits">
+          <li>Lipolyse par injection (dissolve les graisses localisées)</li>
+          <li>Traitement de la cellulite par LPG et cryolipolyse</li>
+          <li>Radiofréquence pour raffermissement cutané</li>
+          <li>Drainage lymphatique manuel et mécanique</li>
+          <li>Enveloppements corps et soins détox</li>
+          <li>Soin vergetures et cicatrices</li>
+        </ul>
+        <div class="service-result-box">
+          <strong>Résultats attendus :</strong> Silhouette affinée, peau raffermie et cellulite réduite dès les premières séances.
+        </div>
+        <div class="service-cta-row">
+          <a href="https://wa.me/213549751647" target="_blank" class="btn btn-primary btn-sm">💬 WhatsApp</a>
+          <a href="#appointment" class="btn btn-gold btn-sm">Réserver</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICE DETAIL 4 – CHIRURGIE
+     ============================================================ -->
+<section class="service-detail" id="service-chir">
+  <div class="container">
+    <div class="service-detail-inner reversed">
+      <div class="service-detail-img reveal-right">
+        <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=900&q=80&auto=format&fit=crop" alt="Chirurgie Esthétique" loading="lazy" class="lazy-img">
+        <div class="service-detail-img-badge">🏥 Chirurgiens certifiés</div>
+      </div>
+      <div class="reveal-left">
+        <div class="section-label">Chirurgie</div>
+        <h2 class="section-title">Chirurgie<br><em style="font-style:italic">Esthétique</em></h2>
+        <p class="section-sub">Nos chirurgiens plasticiens expérimentés vous accompagnent pour des interventions sûres, naturelles et personnalisées selon vos objectifs.</p>
+        <ul class="service-benefits">
+          <li>Rhinoplastie (correction nez)</li>
+          <li>Blépharoplastie (paupières)</li>
+          <li>Augmentation et lifting mammaire</li>
+          <li>Liposuccion et abdominoplastie</li>
+          <li>Lifting visage et cou</li>
+          <li>Otoplastie et corrections diverses</li>
+        </ul>
+        <div class="service-result-box">
+          <strong>Consultation préalable obligatoire.</strong> Chaque intervention est précédée d'un bilan complet et d'un entretien personnalisé avec notre chirurgien.
+        </div>
+        <div class="service-cta-row">
+          <a href="https://wa.me/213549751647?text=Je souhaite une consultation chirurgie esthétique" target="_blank" class="btn btn-primary btn-sm">💬 WhatsApp</a>
+          <a href="#appointment" class="btn btn-gold btn-sm">Consultation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICE DETAIL 5 – DENTAL
+     ============================================================ -->
+<section class="service-detail section-alt" id="service-dental">
+  <div class="container">
+    <div class="service-detail-inner">
+      <div class="service-detail-img reveal-left">
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900&q=80&auto=format&fit=crop" alt="Dentaire" loading="lazy" class="lazy-img">
+        <div class="service-detail-img-badge">🦷 Sourire parfait</div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Pôle Dentaire</div>
+        <h2 class="section-title">Médecine<br><em style="font-style:italic">Dentaire</em></h2>
+        <p class="section-sub">Un cabinet dentaire d'excellence intégré à notre clinique pour vous offrir le sourire de vos rêves : blanchiment, implants, facettes et orthodontie.</p>
+        <ul class="service-benefits">
+          <li>Blanchiment dentaire professionnel (Zoom Whitening)</li>
+          <li>Implants dentaires garantis</li>
+          <li>Facettes céramiques ultra-esthétiques</li>
+          <li>Orthodontie invisible (aligneurs transparents)</li>
+          <li>Couronnes zircone et bridges</li>
+          <li>Détartrage et prophylaxie</li>
+        </ul>
+        <div class="service-result-box">
+          <strong>Résultats attendus :</strong> Un sourire éclatant, naturel et harmonieux dès la première visite pour certains traitements.
+        </div>
+        <div class="service-cta-row">
+          <a href="https://wa.me/213549751647" target="_blank" class="btn btn-primary btn-sm">💬 WhatsApp</a>
+          <a href="#aid-promo" class="btn btn-gold btn-sm">Offre Aïd</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OTHER SERVICES (Compact 3-col grid)
+     ============================================================ -->
+<section class="section" id="service-gyneco">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal">Autres Spécialités</div>
+      <h2 class="section-title reveal delay-1">Médecine complète<br><em style="font-style:italic">à votre service</em></h2>
+    </div>
+    <div class="services-grid">
+      <!-- Gynécologie -->
+      <div class="service-card reveal">
+        <div class="service-icon">🌸</div>
+        <h3>Gynécologie</h3>
+        <p>Consultations gynécologiques, suivi de grossesse, échographies obstétricales, gynécologie esthétique. Prise en charge complète de la santé féminine.</p>
+        <div class="service-cta-row">
+          <a href="#appointment" class="btn btn-outline btn-sm">Prendre RDV</a>
+        </div>
+      </div>
+      <!-- Médecine Interne -->
+      <div class="service-card reveal delay-1" id="service-internal">
+        <div class="service-icon">❤️</div>
+        <h3>Médecine Interne</h3>
+        <p>Bilan de santé complet, suivi maladies chroniques (diabète, hypertension), cardiologie de consultation, endocrinologie.</p>
+        <div class="service-cta-row">
+          <a href="#appointment" class="btn btn-outline btn-sm">Prendre RDV</a>
+        </div>
+      </div>
+      <!-- Nutrition -->
+      <div class="service-card reveal delay-2" id="service-nutrition">
+        <div class="service-icon">🥗</div>
+        <h3>Nutrition & Obésité</h3>
+        <p>Consultation nutritionnelle, programme minceur personnalisé, rééquilibrage alimentaire, suivi obésité et troubles alimentaires.</p>
+        <div class="service-cta-row">
+          <a href="#appointment" class="btn btn-outline btn-sm">Prendre RDV</a>
+        </div>
+      </div>
+      <!-- Douleur -->
+      <div class="service-card reveal delay-1" id="service-douleur">
+        <div class="service-icon">💊</div>
+        <h3>Gestion de la Douleur</h3>
+        <p>Douleurs chroniques, infiltrations articulaires et épidurales, thérapies innovantes, prise en charge multidisciplinaire.</p>
+        <div class="service-cta-row">
+          <a href="#appointment" class="btn btn-outline btn-sm">Prendre RDV</a>
+        </div>
+      </div>
+      <!-- Labo -->
+      <div class="service-card reveal delay-2" id="service-labo">
+        <div class="service-icon">🔬</div>
+        <h3>Laboratoire d'Analyses</h3>
+        <p>Analyses biologiques complètes sur place. Résultats rapides, fiables et transmis numériquement. Biologie spécialisée disponible.</p>
+        <div class="service-cta-row">
+          <a href="#appointment" class="btn btn-outline btn-sm">Prendre RDV</a>
+        </div>
+      </div>
+      <!-- Injections teaser -->
+      <div class="service-card reveal delay-3" onclick="document.getElementById('injections').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">
+        <div class="service-icon">💉</div>
+        <h3>Injections Esthétiques</h3>
+        <p>Botox, Filler, Skinboosters, Lipofilling, Inducteurs de collagène. Résultats naturels par des médecins experts en médecine esthétique.</p>
+        <div class="service-cta-row">
+          <a href="#injections" class="btn btn-gold btn-sm">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LASER PACKS
+     ============================================================ -->
+<section id="laser-packs">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Offres Laser</div>
+      <h2 class="section-title reveal" style="color:white">Nos Packs<br><em style="font-style:italic;color:var(--gold)">Épilation Laser</em></h2>
+      <p class="section-sub reveal delay-1" style="color:rgba(255,255,255,0.6);margin:0 auto">Choisissez le pack adapté à vos besoins. Zones multiples, tarifs transparents, résultats garantis.</p>
+    </div>
+    <div class="packs-grid">
+      <div class="pack-card reveal">
+        <div class="pack-num">Pack I</div>
+        <div class="pack-price">22 000<span class="pack-currency">DA</span></div>
+        <div class="pack-divider"></div>
+        <ul class="pack-features">
+          <li>2 zones au choix</li>
+          <li>Technologie Clarity II</li>
+          <li>Consultation incluse</li>
+          <li>Suivi personnalisé</li>
+          <li>Séance de rattrapage offerte</li>
+        </ul>
+        <a href="https://wa.me/213549751647?text=Je suis intéressée par le Pack Laser I à 22 000 DA" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;border-color:rgba(212,194,165,0.4);color:rgba(255,255,255,0.8)">
+          Choisir ce pack
+        </a>
+      </div>
+      <div class="pack-card popular reveal delay-1">
+        <div class="pack-badge">⭐ Plus Populaire</div>
+        <div class="pack-num">Pack II</div>
+        <div class="pack-price">28 000<span class="pack-currency">DA</span></div>
+        <div class="pack-divider"></div>
+        <ul class="pack-features">
+          <li>4 zones au choix</li>
+          <li>Technologie Clarity II</li>
+          <li>Consultation + Bilan peau</li>
+          <li>Suivi personnalisé</li>
+          <li>2 séances de rattrapage offertes</li>
+          <li>Soin hydratant post-séance inclus</li>
+        </ul>
+        <a href="https://wa.me/213549751647?text=Je suis intéressée par le Pack Laser II à 28 000 DA" target="_blank" class="btn btn-gold" style="width:100%;justify-content:center">
+          Choisir ce pack
+        </a>
+      </div>
+      <div class="pack-card reveal delay-2">
+        <div class="pack-num">Pack III</div>
+        <div class="pack-price">30 000<span class="pack-currency">DA</span></div>
+        <div class="pack-divider"></div>
+        <ul class="pack-features">
+          <li>Corps complet</li>
+          <li>Technologie Clarity II</li>
+          <li>Bilan peau complet</li>
+          <li>Suivi prioritaire</li>
+          <li>Séances de rattrapage illimitées</li>
+          <li>Soins post-séance premium</li>
+          <li>Accès VIP lounge</li>
+        </ul>
+        <a href="https://wa.me/213549751647?text=Je suis intéressée par le Pack Laser III à 30 000 DA" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;border-color:rgba(212,194,165,0.4);color:rgba(255,255,255,0.8)">
+          Choisir ce pack
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INJECTIONS ESTHÉTIQUES
+     ============================================================ -->
+<section class="section section-alt" id="injections">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal">Médecine Esthétique</div>
+      <h2 class="section-title reveal delay-1">Les Injections<br><em style="font-style:italic">Expliquées</em></h2>
+      <p class="section-sub reveal delay-2" style="margin:0 auto">Rajeunissement naturel, correction et éclat. Nos médecins esthétiques pratiquent des injections précises pour des résultats harmonieux et discrets.</p>
+    </div>
+    <div class="injections-grid">
+      <div class="injection-card reveal">
+        <div class="injection-icon">💉</div>
+        <h3>Botox</h3>
+        <p>Lisse les rides d'expression (front, pattes d'oie, lion). Résultats naturels, durée 4–6 mois.</p>
+      </div>
+      <div class="injection-card reveal delay-1">
+        <div class="injection-icon">💧</div>
+        <h3>Filler (Acide hyaluronique)</h3>
+        <p>Volumise lèvres, pommettes, cernes. Résultats immédiats, durée 12–18 mois.</p>
+      </div>
+      <div class="injection-card reveal delay-2">
+        <div class="injection-icon">✨</div>
+        <h3>Skinboosters</h3>
+        <p>Hydratation profonde et éclat de la peau. Microinjections revitalisantes, durée 6–9 mois.</p>
+      </div>
+      <div class="injection-card reveal delay-3">
+        <div class="injection-icon">🌿</div>
+        <h3>Lipofilling</h3>
+        <p>Remodelage au propre tissu adipeux. Technique naturelle, résultats permanents.</p>
+      </div>
+      <div class="injection-card reveal delay-1">
+        <div class="injection-icon">🧬</div>
+        <h3>Inducteurs de Collagène</h3>
+        <p>Stimulent la production naturelle de collagène. Peau plus ferme et jeune, durée 18–24 mois.</p>
+      </div>
+    </div>
+    <div class="injection-info-grid">
+      <div class="injection-info-box reveal">
+        <h3>🕐 À quel âge commencer ?</h3>
+        <p>Il n'y a pas d'âge universel. En préventif, le Botox peut se commencer dès 28–30 ans pour les rides d'expression marquées. Les fillers sont souvent recommandés après 30 ans pour compenser la perte de volume. L'idéal est une consultation personnalisée avec notre médecin esthétique pour définir votre protocole sur mesure.</p>
+      </div>
+      <div class="injection-info-box reveal delay-1">
+        <h3>⏳ Combien de temps durent les résultats ?</h3>
+        <p><strong>Botox :</strong> 4 à 6 mois. <strong>Fillers :</strong> 12 à 18 mois selon la zone. <strong>Skinboosters :</strong> 6 à 9 mois. <strong>Inducteurs de collagène :</strong> jusqu'à 24 mois. <strong>Lipofilling :</strong> résultats permanents (à 70%). Des séances d'entretien sont conseillées pour maintenir les résultats dans le temps.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem" class="reveal">
+      <a href="https://wa.me/213549751647?text=Je souhaite une consultation injections esthétiques" target="_blank" class="btn btn-gold">💬 Consultation Gratuite WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AÏD PROMO
+     ============================================================ -->
+<section id="aid-promo">
+  <div class="container">
+    <div class="aid-inner">
+      <div class="aid-content reveal-left">
+        <div class="section-label">Offre Spéciale</div>
+        <h2 class="section-title" style="font-size:clamp(2rem,4vw,3.2rem)">
+          Préparez votre<br><em style="font-style:italic">sourire pour l'Aïd</em>
+        </h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.7)">
+          Offrez-vous un sourire éclatant pour les fêtes. Nos offres spéciales Aïd sur les soins dentaires premium sont disponibles pour une durée limitée.
+        </p>
+        <div class="aid-services-list">
+          <div class="aid-service-item">
+            <span class="aid-service-icon">⚡</span>
+            <div class="aid-service-info">
+              <h4>Blanchiment Dentaire Zoom</h4>
+              <p>Jusqu'à 8 tons plus blanc en 1 heure — résultats immédiats</p>
+            </div>
+          </div>
+          <div class="aid-service-item">
+            <span class="aid-service-icon">🏆</span>
+            <div class="aid-service-info">
+              <h4>Facettes Céramiques</h4>
+              <p>Correction esthétique durable — sourire de star naturel</p>
+            </div>
+          </div>
+          <div class="aid-service-item">
+            <span class="aid-service-icon">✨</span>
+            <div class="aid-service-info">
+              <h4>Implants Dentaires</h4>
+              <p>Solution définitive et naturelle — pose en une journée</p>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:1.8rem">
+          Votre sourire est votre première impression. Pour l'Aïd, rayonnez avec confiance.
+        </p>
+        <a href="https://wa.me/213549751647?text=Je voudrais profiter de l'offre dentaire pour l'Aïd" target="_blank" class="btn btn-gold">
+          💬 Profiter de l'offre Aïd
+        </a>
+      </div>
+      <div class="aid-visual reveal-right">
+        <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=900&q=80&auto=format&fit=crop" alt="Sourire Aïd" loading="lazy" class="lazy-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY
+     ============================================================ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal">Notre Clinique</div>
+      <h2 class="section-title reveal delay-1">Un cadre d'exception<br><em style="font-style:italic">pour votre bien-être</em></h2>
+    </div>
+    <div class="gallery-slider-wrap reveal">
+      <div class="gallery-track" id="galleryTrack">
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80&auto=format&fit=crop" alt="Clinique" loading="lazy">
+        </div>
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=800&q=80&auto=format&fit=crop" alt="Clinique" loading="lazy">
+        </div>
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80&auto=format&fit=crop" alt="Clinique" loading="lazy">
+        </div>
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1579154341184-f2debc3c1d90?w=800&q=80&auto=format&fit=crop" alt="Clinique" loading="lazy">
+        </div>
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80&auto=format&fit=crop" alt="Clinique" loading="lazy">
+        </div>
+        <div class="gallery-slide">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80&auto=format&fit=crop" alt="Clinique" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="gallery-controls">
+      <button class="gallery-btn" id="galleryPrev" aria-label="Précédent">←</button>
+      <button class="gallery-btn" id="galleryNext" aria-label="Suivant">→</button>
+    </div>
+    <div class="gallery-dots" id="galleryDots"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BEFORE / AFTER
+     ============================================================ -->
+<section id="before-after">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label reveal">Transformations Réelles</div>
+      <h2 class="section-title reveal delay-1">Avant / Après –<br><em style="font-style:italic">Nos Résultats</em></h2>
+      <p class="section-sub reveal delay-2">Des résultats authentiques obtenus par nos experts. Cliquez sur une carte pour révéler le résultat.</p>
+    </div>
+    <div class="filter-tabs reveal">
+      <button class="filter-tab active" data-filter="all">Tous</button>
+      <button class="filter-tab" data-filter="laser">Épilation Laser</button>
+      <button class="filter-tab" data-filter="visage">Soins Visage</button>
+      <button class="filter-tab" data-filter="corps">Corps</button>
+      <button class="filter-tab" data-filter="dental">Dentaire</button>
+    </div>
+    <div class="ba-grid" id="baGrid">
+      <div class="ba-card reveal" data-category="laser">
+        <div class="ba-comparison">
+          <img class="ba-img-before" src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80" alt="Avant" loading="lazy">
+          <img class="ba-img-after" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80" alt="Après" loading="lazy">
+          <div class="ba-divider"><div class="ba-divider-btn">↔</div></div>
+          <span class="ba-label ba-label-before">Avant</span>
+          <span class="ba-label ba-label-after">Après</span>
+        </div>
+        <div class="ba-info"><h4>Épilation Laser</h4><span>Résultat après 4 séances</span></div>
+      </div>
+      <div class="ba-card reveal delay-1" data-category="visage">
+        <div class="ba-comparison">
+          <img class="ba-img-before" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="Avant" loading="lazy">
+          <img class="ba-img-after" src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=600&q=80" alt="Après" loading="lazy">
+          <div class="ba-divider"><div class="ba-divider-btn">↔</div></div>
+          <span class="ba-label ba-label-before">Avant</span>
+          <span class="ba-label ba-label-after">Après</span>
+        </div>
+        <div class="ba-info"><h4>Soin Visage</h4><span>Peeling & Éclat</span></div>
+      </div>
+      <div class="ba-card reveal delay-2" data-category="corps">
+        <div class="ba-comparison">
+          <img class="ba-img-before" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Avant" loading="lazy">
+          <img class="ba-img-after" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Après" loading="lazy">
+          <div class="ba-divider"><div class="ba-divider-btn">↔</div></div>
+          <span class="ba-label ba-label-before">Avant</span>
+          <span class="ba-label ba-label-after">Après</span>
+        </div>
+        <div class="ba-info"><h4>Soins Corps</h4><span>Cryolipolyse – 3 séances</span></div>
+      </div>
+      <div class="ba-card reveal delay-1" data-category="dental">
+        <div class="ba-comparison">
+          <img class="ba-img-before" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=600&q=80" alt="Avant" loading="lazy">
+          <img class="ba-img-after" src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80" alt="Après" loading="lazy">
+          <div class="ba-divider"><div class="ba-divider-btn">↔</div></div>
+          <span class="ba-label ba-label-before">Avant</span>
+          <span class="ba-label ba-label-after">Après</span>
+        </div>
+        <div class="ba-info"><h4>Blanchiment</h4><span>Zoom Whitening</span></div>
+      </div>
+      <div class="ba-card reveal delay-2 hidden" data-category="laser">
+        <div class="ba-comparison">
+          <img class="ba-img-before" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&q=80" alt="Avant" loading="lazy">
+          <img class="ba-img-after" src="https://images.unsplash.com/photo-1516914943479-89db7d9ae7f2?w=600&q=80" alt="Après" loading="lazy">
+          <div class="ba-divider"><div class="ba-divider-btn">↔</div></div>
+          <span class="ba-label ba-label-before">Avant</span>
+          <span class="ba-label ba-label-after">Après</span>
+        </div>
+        <div class="ba-info"><h4>Épilation Laser</h4><span>Corps complet – 6 séances</span></div>
+      </div>
+      <div class="ba-card reveal delay-3 hidden" data-category="visage">
+        <div class="ba-comparison">
+          <img class="ba-img-before" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" alt="Avant" loading="lazy">
+          <img class="ba-img-after" src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80" alt="Après" loading="lazy">
+          <div class="ba-divider"><div class="ba-divider-btn">↔</div></div>
+          <span class="ba-label ba-label-before">Avant</span>
+          <span class="ba-label ba-label-after">Après</span>
+        </div>
+        <div class="ba-info"><h4>Injection Filler</h4><span>Lèvres & Pommettes</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn btn-dark ba-toggle-btn" id="baToggle" onclick="toggleBA()">✦ Voir plus de résultats</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DOCTORS
+     ============================================================ -->
+<section id="doctors">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal">Notre Équipe</div>
+      <h2 class="section-title reveal delay-1">Des experts<br><em style="font-style:italic">à votre écoute</em></h2>
+      <p class="section-sub reveal delay-2" style="margin:0 auto">Une équipe pluridisciplinaire de médecins spécialistes, formés aux dernières techniques pour votre prise en charge optimale.</p>
+    </div>
+    <div class="doctors-grid">
+      <div class="doctor-card reveal">
+        <div class="doctor-photo">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80&auto=format&fit=crop" alt="Dr. Amira Benali" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-specialty">Médecine Esthétique</div>
+          <h3>Dr. Amira Benali</h3>
+          <p class="doctor-bio">Spécialiste en médecine esthétique avec 12 ans d'expérience. Formée à Paris en injections et laser esthétique.</p>
+        </div>
+      </div>
+      <div class="doctor-card reveal delay-1">
+        <div class="doctor-photo">
+          <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80&auto=format&fit=crop" alt="Dr. Karim Meziani" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-specialty">Chirurgie Esthétique</div>
+          <h3>Dr. Karim Meziani</h3>
+          <p class="doctor-bio">Chirurgien plasticien, ancien interne des Hôpitaux de Lyon. Expert en rhinoplastie et chirurgie corporelle.</p>
+        </div>
+      </div>
+      <div class="doctor-card reveal delay-2">
+        <div class="doctor-photo">
+          <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&q=80&auto=format&fit=crop" alt="Dr. Nadia Saoudi" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-specialty">Gynécologie</div>
+          <h3>Dr. Nadia Saoudi</h3>
+          <p class="doctor-bio">Gynécologue-obstétricienne, spécialiste en gynécologie esthétique et suivi prénatal personnalisé.</p>
+        </div>
+      </div>
+      <div class="doctor-card reveal delay-3">
+        <div class="doctor-photo">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80&auto=format&fit=crop" alt="Dr. Yacine Bekhti" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-specialty">Médecine Dentaire</div>
+          <h3>Dr. Yacine Bekhti</h3>
+          <p class="doctor-bio">Chirurgien-dentiste spécialisé en implantologie et esthétique dentaire. Formé aux techniques Zoom et facettes.</p>
+        </div>
+      </div>
+      <div class="doctor-card reveal delay-1">
+        <div class="doctor-photo">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80&auto=format&fit=crop" alt="Dr. Soumia Hamadi" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-specialty">Nutrition & Obésité</div>
+          <h3>Dr. Soumia Hamadi</h3>
+          <p class="doctor-bio">Nutritionniste et diététicienne, spécialiste des troubles du comportement alimentaire et programmes minceur.</p>
+        </div>
+      </div>
+      <div class="doctor-card reveal delay-2">
+        <div class="doctor-photo">
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80&auto=format&fit=crop" alt="Dr. Rima Chekfour" loading="lazy">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-specialty">Médecine Interne</div>
+          <h3>Dr. Rima Chekfour</h3>
+          <p class="doctor-bio">Interniste avec expertise en maladies chroniques, bilans de santé complets et suivi endocrinologique.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     APPOINTMENT FORM
+     ============================================================ -->
+<section id="appointment">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Prise de Rendez-vous</div>
+      <h2 class="section-title reveal" style="color:white">Réservez votre<br><em style="font-style:italic;color:var(--gold)">consultation</em></h2>
+      <p class="section-sub reveal delay-1" style="color:rgba(255,255,255,0.6);margin:0 auto">Remplissez le formulaire ci-dessous et notre équipe vous confirmera votre rendez-vous dans les plus brefs délais.</p>
+    </div>
+    <div class="form-card reveal">
+      <form id="appointmentForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Nom complet *</label>
+            <input type="text" id="fname" name="nom" placeholder="Votre nom complet" required>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Téléphone *</label>
+            <input type="tel" id="fphone" name="telephone" placeholder="0X XX XX XX XX" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fservice">Service *</label>
+            <select id="fservice" name="service" required onchange="updateSubServices(this.value)">
+              <option value="">— Choisir un service —</option>
+              <option value="laser">Épilation Laser</option>
+              <option value="visage">Soins Esthétiques Visage</option>
+              <option value="corps">Soins Esthétiques Corps</option>
+              <option value="chirurgie">Chirurgie Esthétique</option>
+              <option value="injections">Injections Esthétiques</option>
+              <option value="dental">Médecine Dentaire</option>
+              <option value="gyneco">Gynécologie</option>
+              <option value="interne">Médecine Interne</option>
+              <option value="nutrition">Nutrition & Obésité</option>
+              <option value="douleur">Gestion de la Douleur</option>
+              <option value="labo">Laboratoire d'Analyses</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fsubservice">Sous-service</label>
+            <select id="fsubservice" name="sous_service">
+              <option value="">— Sélectionnez un service d'abord —</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fdate">Date souhaitée *</label>
+            <input type="date" id="fdate" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="ftime">Heure souhaitée *</label>
+            <select id="ftime" name="heure" required>
+              <option value="">— Choisir une heure —</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="fnotes">Notes / Précisions</label>
+            <input type="text" id="fnotes" name="notes" placeholder="Informations complémentaires (optionnel)">
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-gold" id="submitBtn">
+            📅 Confirmer mon rendez-vous
+          </button>
+          <a href="https://wa.me/213549751647?text=Je souhaite prendre un rendez-vous" target="_blank" class="btn btn-primary">
+            💬 Via WhatsApp
+          </a>
+        </div>
+        <div class="form-message" id="formMessage"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label reveal">Nous Trouver</div>
+      <h2 class="section-title reveal delay-1">Contact &<br><em style="font-style:italic">Localisation</em></h2>
+    </div>
+    <div class="contact-inner">
+      <div class="contact-info-card reveal-left">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-info">
+            <h4>Adresse</h4>
+            <a href="https://maps.google.com/?q=Rue+Abdelkader+Gadouche+129+Hydra+Alger" target="_blank">
+              Rue Abdelkader Gadouche 129,<br>Hydra, Alger, Algérie
+            </a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-info">
+            <h4>Téléphones</h4>
+            <a href="tel:0549751647">0549 75 16 47</a>
+            <a href="tel:0660933114">0660 93 31 14</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">💬</div>
+          <div class="contact-item-info">
+            <h4>WhatsApp</h4>
+            <a href="https://wa.me/213549751647" target="_blank">+213 549 75 16 47</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div class="contact-item-info">
+            <h4>Horaires d'ouverture</h4>
+            <p>Lundi – Vendredi : 08h00 – 20h00</p>
+            <p>Samedi : 08h00 – 18h00</p>
+            <p>Dimanche : Fermé</p>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
+          <a href="https://wa.me/213549751647" target="_blank" class="btn btn-primary btn-sm">💬 WhatsApp</a>
+          <a href="tel:0549751647" class="btn btn-gold btn-sm">📞 Appeler</a>
+          <a href="https://maps.google.com/?q=Rue+Abdelkader+Gadouche+129+Hydra+Alger" target="_blank" class="btn btn-outline btn-sm">📍 Itinéraire</a>
+        </div>
+      </div>
+      <div class="map-container reveal-right">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.5!2d3.0166!3d36.7485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb26e5b1!2sHydra%2C+Alger!5e0!3m2!1sfr!2sdz!4v1680000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Evolution Medical Center – Hydra, Alger">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal">FAQ</div>
+      <h2 class="section-title reveal delay-1">Questions<br><em style="font-style:italic">fréquentes</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>⏳ Quelle est la durée des résultats des traitements esthétiques ?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Cela dépend du traitement. L'épilation laser offre des résultats permanents après un cycle complet de 6 à 8 séances. Le Botox dure 4 à 6 mois, les fillers 12 à 18 mois. Les soins visage se maintiennent mieux avec des séances d'entretien régulières. Pour les interventions chirurgicales, les résultats sont durables à long terme.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>💊 Les traitements sont-ils douloureux ?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            La majorité de nos traitements sont peu ou pas douloureux. Le laser Clarity II intègre un système de refroidissement cutané intégré, rendant la séance très confortable. Pour les injections, une crème anesthésiante est appliquée au préalable. Les soins esthétiques visage et corps sont totalement indolores. La chirurgie est pratiquée sous anesthésie par notre équipe médicale.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-2">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>🔢 Combien de séances sont nécessaires ?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Le nombre de séances varie selon le traitement et votre profil. Pour l'épilation laser, comptez 6 à 8 séances espacées de 4 à 8 semaines. Les soins visage donnent des résultats visibles après 1 séance, avec un programme optimal de 4 à 6 séances. Pour les injections esthétiques, une à deux séances par an sont généralement suffisantes selon vos objectifs.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-3">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>🛡️ Les traitements sont-ils sécurisés ?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Oui, absolument. Tous nos traitements sont réalisés par des médecins diplômés avec des appareils certifiés CE conformes aux normes internationales. Une consultation préalable systématique permet d'évaluer votre profil et d'adapter le protocole. Notre clinique respecte les protocoles d'hygiène et de stérilisation les plus stricts.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>📅 Comment prendre rendez-vous ?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Vous pouvez prendre rendez-vous via WhatsApp au +213 549 75 16 47, par appel téléphonique, ou directement via notre formulaire de réservation en ligne sur cette page. Notre équipe vous contacte sous 24h pour confirmer votre créneau.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-2">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>💰 Quels sont vos modes de paiement ?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Nous acceptons les paiements en espèces et par virement bancaire. Des facilités de paiement en plusieurs fois sont disponibles pour certains traitements et interventions. Contactez-nous pour plus d'informations sur les options de financement.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:1rem">
+          <span class="nav-logo-main">Evolution Medical Center</span>
+          <span class="nav-logo-sub">Clinique Premium – Hydra, Alger</span>
+        </div>
+        <p>Votre santé et votre beauté méritent le meilleur. Notre équipe de spécialistes vous accompagne avec bienveillance et expertise dans un cadre d'exception.</p>
+        <div class="social-row">
+          <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+          <a href="#" class="social-btn" aria-label="Facebook">🌐</a>
+          <a href="https://wa.me/213549751647" class="social-btn" aria-label="WhatsApp">💬</a>
+          <a href="tel:0549751647" class="social-btn" aria-label="Téléphone">📞</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#service-laser">Épilation Laser</a></li>
+          <li><a href="#service-visage">Soins Visage</a></li>
+          <li><a href="#service-corps">Soins Corps</a></li>
+          <li><a href="#service-chir">Chirurgie Esthétique</a></li>
+          <li><a href="#injections">Injections</a></li>
+          <li><a href="#service-dental">Médecine Dentaire</a></li>
+          <li><a href="#service-gyneco">Gynécologie</a></li>
+          <li><a href="#service-labo">Laboratoire</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#laser-packs">Packs Laser</a></li>
+          <li><a href="#doctors">Notre Équipe</a></li>
+          <li><a href="#before-after">Avant / Après</a></li>
+          <li><a href="#appointment">Prendre RDV</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Nous trouver</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Horaires</h4>
+        <div style="display:flex;flex-direction:column;gap:.3rem">
+          <div class="footer-hours-item"><span class="day">Lun – Ven</span><span>08h – 20h</span></div>
+          <div class="footer-hours-item"><span class="day">Samedi</span><span>08h – 18h</span></div>
+          <div class="footer-hours-item"><span class="day">Dimanche</span><span>Fermé</span></div>
+        </div>
+        <div style="margin-top:1.5rem">
+          <a href="https://wa.me/213549751647" target="_blank" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;margin-bottom:.75rem">💬 WhatsApp</a>
+          <a href="tel:0549751647" class="btn btn-outline btn-sm" style="width:100%;justify-content:center;border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.7)">📞 0549 75 16 47</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Evolution Medical Center. Tous droits réservés.</span>
+      <span>Rue Abdelkader Gadouche 129, Hydra, Alger</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ── NAVBAR SCROLL ────────────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ── HAMBURGER ────────────────────────────────────────────── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+let menuOpen = false;
+
+hamburger.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  mobileMenu.classList.toggle('open', menuOpen);
+  hamburger.querySelectorAll('span')[0].style.transform = menuOpen ? 'rotate(45deg) translate(5px, 5px)' : '';
+  hamburger.querySelectorAll('span')[1].style.opacity = menuOpen ? '0' : '';
+  hamburger.querySelectorAll('span')[2].style.transform = menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : '';
+});
+
+function closeMobileMenu() {
+  menuOpen = false;
+  mobileMenu.classList.remove('open');
+  hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+}
+
+/* ── SCROLL ANIMATIONS ────────────────────────────────────── */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* ── DATE MIN ─────────────────────────────────────────────── */
+const fdateInput = document.getElementById('fdate');
+if (fdateInput) {
+  const today = new Date();
+  today.setDate(today.getDate() + 1);
+  fdateInput.min = today.toISOString().split('T')[0];
+}
+
+/* ── TIME SLOTS ───────────────────────────────────────────── */
+const timeSelect = document.getElementById('ftime');
+if (timeSelect) {
+  for (let h = 8; h < 19; h++) {
+    for (let m of [0, 15, 30, 45]) {
+      const hStr = h.toString().padStart(2, '0');
+      const mStr = m.toString().padStart(2, '0');
+      const opt = document.createElement('option');
+      opt.value = `${hStr}:${mStr}`;
+      opt.textContent = `${hStr}h${mStr}`;
+      timeSelect.appendChild(opt);
+    }
+  }
+  const lastOpt = document.createElement('option');
+  lastOpt.value = '19:00';
+  lastOpt.textContent = '19h00';
+  timeSelect.appendChild(lastOpt);
+}
+
+/* ── SUB-SERVICES ─────────────────────────────────────────── */
+const subServices = {
+  laser: ['Visage complet','Aisselles','Bras','Avant-bras','Jambes','Cuisses','Maillot classique','Maillot intégral','Dos','Torse','Corps complet'],
+  visage: ['Hydratation profonde','Peeling chimique','Microdermabrasion','Soin anti-âge','Soin acné','Traitement taches','Radiofréquence visage','Mésothérapie visage'],
+  corps: ['Cryolipolyse','Lipolyse par injection','Radiofréquence corps','Drainage lymphatique','Soin anti-cellulite','Soin vergetures','Enveloppement corps'],
+  chirurgie: ['Rhinoplastie','Blépharoplastie','Augmentation mammaire','Lifting mammaire','Liposuccion','Abdominoplastie','Lifting visage','Otoplastie'],
+  injections: ['Botox – Front','Botox – Pattes d\'oie','Botox – Rides du lion','Filler lèvres','Filler pommettes','Filler cernes','Skinboosters','Lipofilling','Inducteurs de collagène'],
+  dental: ['Blanchiment Zoom','Implants dentaires','Facettes céramiques','Orthodontie invisible','Couronnes zircone','Bridge','Détartrage'],
+  gyneco: ['Consultation gynécologique','Suivi grossesse','Échographie obstétricale','Gynécologie esthétique','Pose DIU'],
+  interne: ['Bilan santé complet','Consultation cardiologie','Suivi diabète','Suivi hypertension','Consultation endocrinologie'],
+  nutrition: ['Consultation nutrition','Programme minceur','Rééquilibrage alimentaire','Suivi obésité'],
+  douleur: ['Consultation douleur chronique','Infiltration articulaire','Infiltration épidurale','Thérapies antidouleur'],
+  labo: ['Bilan biologique complet','Analyses de routine','Biologie spécialisée','Bilan hormonal']
+};
+
+function updateSubServices(service) {
+  const sub = document.getElementById('fsubservice');
+  sub.innerHTML = '<option value="">— Choisir un sous-service —</option>';
+  if (subServices[service]) {
+    subServices[service].forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s;
+      opt.textContent = s;
+      sub.appendChild(opt);
+    });
+  } else {
+    sub.innerHTML = '<option value="">— Sélectionnez un service d\'abord —</option>';
+  }
+}
+
+/* ── BOOKING STORE (in-memory) ───────────────────────────── */
+const bookings = [];
+
+function isSlotPending(date, time, service) {
+  return bookings.some(b => b.date === date && b.time === time && b.service === service);
+}
+
+/* ── FORM SUBMIT ──────────────────────────────────────────── */
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('submitBtn');
+  const msgEl = document.getElementById('formMessage');
+  msgEl.className = 'form-message';
+  msgEl.style.display = 'none';
+
+  const data = {
+    nom: form.nom.value.trim(),
+    telephone: form.telephone.value.trim(),
+    service: form.service.value,
+    sous_service: form.sous_service.value,
+    date: form.date.value,
+    heure: form.heure.value,
+    notes: form.notes.value.trim()
+  };
+
+  if (!data.nom || !data.telephone || !data.service || !data.date || !data.heure) {
+    msgEl.textContent = '⚠️ Veuillez remplir tous les champs obligatoires.';
+    msgEl.className = 'form-message error';
+    msgEl.style.display = 'block';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Envoi en cours...';
+
+  await new Promise(r => setTimeout(r, 1200));
+
+  const isPending = isSlotPending(data.date, data.heure, data.service);
+
+  bookings.push(data);
+
+  btn.disabled = false;
+  btn.textContent = '📅 Confirmer mon rendez-vous';
+
+  if (isPending) {
+    msgEl.textContent = `⏳ Votre demande a été reçue pour le ${formatDate(data.date)} à ${data.heure}. Ce créneau est en attente de validation — notre équipe vous contactera rapidement.`;
+    msgEl.className = 'form-message pending';
+  } else {
+    msgEl.textContent = `✅ Merci ${data.nom} ! Votre demande de rendez-vous pour le ${formatDate(data.date)} à ${data.heure} a été reçue. Nous vous confirmons sous 24h.`;
+    msgEl.className = 'form-message success';
+  }
+  msgEl.style.display = 'block';
+  form.reset();
+  msgEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+/* ── FAQ ──────────────────────────────────────────────────── */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ── BEFORE / AFTER ───────────────────────────────────────── */
+document.querySelectorAll('.ba-card').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('toggled'));
+});
+
+let baExpanded = false;
+function toggleBA() {
+  baExpanded = !baExpanded;
+  document.querySelectorAll('.ba-card.hidden').forEach(c => c.classList.remove('hidden'));
+  if (!baExpanded) return;
+  document.getElementById('baToggle').textContent = '✦ Voir moins';
+  document.getElementById('baToggle').textContent = baExpanded ? '✦ Voir moins' : '✦ Voir plus de résultats';
+}
+
+// Filter
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    document.querySelectorAll('.ba-card').forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+/* ── GALLERY SLIDER ───────────────────────────────────────── */
+const track = document.getElementById('galleryTrack');
+const slides = document.querySelectorAll('.gallery-slide');
+const dotsContainer = document.getElementById('galleryDots');
+let currentSlide = 0;
+let slidesPerView = 3;
+
+function getSlidesPerView() {
+  if (window.innerWidth <= 480) return 1;
+  if (window.innerWidth <= 768) return 2;
+  return 3;
+}
+
+function buildDots() {
+  dotsContainer.innerHTML = '';
+  const total = Math.ceil(slides.length / slidesPerView);
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'gallery-dot' + (i === currentSlide ? ' active' : '');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+}
+
+function goToSlide(idx) {
+  slidesPerView = getSlidesPerView();
+  const maxIdx = Math.max(0, Math.ceil(slides.length / slidesPerView) - 1);
+  currentSlide = Math.max(0, Math.min(idx, maxIdx));
+  const slideWidth = slides[0].offsetWidth + 19.2; // gap ~1.2rem
+  track.style.transform = `translateX(-${currentSlide * slidesPerView * slideWidth}px)`;
+  document.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+
+document.getElementById('galleryPrev').addEventListener('click', () => goToSlide(currentSlide - 1));
+document.getElementById('galleryNext').addEventListener('click', () => goToSlide(currentSlide + 1));
+
+window.addEventListener('resize', () => { slidesPerView = getSlidesPerView(); buildDots(); goToSlide(0); });
+
+setTimeout(() => { slidesPerView = getSlidesPerView(); buildDots(); }, 100);
+
+// Auto-play gallery
+setInterval(() => {
+  const maxIdx = Math.ceil(slides.length / slidesPerView) - 1;
+  goToSlide(currentSlide < maxIdx ? currentSlide + 1 : 0);
+}, 4500);
+
+/* ── LAZY LOAD IMAGES ─────────────────────────────────────── */
+if ('IntersectionObserver' in window) {
+  const imgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
+        imgObserver.unobserve(img);
+      }
+    });
+  }, { rootMargin: '200px' });
+  document.querySelectorAll('img[loading="lazy"]').forEach(img => imgObserver.observe(img));
+}
+</script>
+</body>
+</html>
